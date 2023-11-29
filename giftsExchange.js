@@ -1,22 +1,20 @@
-  const startButton = document.querySelector('.startButton');
-  const startScreen = document.querySelector('.startScreen');
   const answers = document.querySelector('.answers');
   const inputBar = document.querySelector('.inputBar');
  
-//  inputBar.addEventListener('input', () => {
-//   const newAnswer = createNewAnswer(inputBar.value); 
-// 	answerBar.appendChild(newAnswer);
-//   inputBar.value = ''; 
-//   });
-
+  const array = [];
   function handleKeyPress(event) {
     if(event.keyCode === 13){
       event.preventDefault();
       const newAnswer = createNames(inputBar.value); 
 	  answers.appendChild(newAnswer);
-    inputBar.value = ''; 
+     
+
+    array.push(newAnswer);
+    inputBar.value = '';
+    console.log(array);
     } 
   }
+
   inputBar.addEventListener('keydown', handleKeyPress);
  
  
@@ -33,6 +31,7 @@
   deleteButton.appendChild(document.createTextNode("X"));
   deleteButton.addEventListener('click', () => {
     newName.remove(); 
+    
   });
 
   newName.appendChild(newNameText);
