@@ -10,6 +10,13 @@ body{
 	margin: 0;
 	background: #fff;
 	color: #000;
+  background:url(../forest.jpg);  /* dodane */
+  background-size: cover;
+	background-position: center bottom; 
+  overflow: hidden;
+	position: relative;
+  height: 100vh;
+	width: 100%;
 }
 
 .snow_wrap{
@@ -66,7 +73,7 @@ body{
 }
 
 
-.app{
+.app, .gameScreen{
   width: 90%;
   max-width: 800px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -78,7 +85,6 @@ body{
   text-align: center;
   z-index: 1;
 }
-
 
 .santaImg{
   width: 70%;
@@ -92,4 +98,32 @@ body{
   color: white; 
   margin: 50px;
   cursor: pointer;
+}
+
+.answerItem{
+  margin-top: 13px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;  /*none*/
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 93%;
+  height: 40px;
+  background-color: rgb(238, 228, 142);
+}
+.answerText{
+padding: 20px;
+color: white;
+font-size: 15px;
+}
+.deleteButton{
+  cursor: pointer;
+  margin-left: 630px;
+  background: transparent;
+  border: 0;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  position: absolute;
 }
