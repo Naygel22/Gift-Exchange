@@ -73,7 +73,7 @@ body{
 }
 
 
-.app, .gameScreen{
+.app, .gameScreen, .drawScreen{
   width: 90%;
   max-width: 800px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -127,10 +127,39 @@ font-size: 15px;
   color: white;
   position: absolute;
 }
+.inputSpace{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .inputBar{
   width: 300px;
   height: 30px;
   padding: 7px;
   border: 1px solid #363636;
   border-radius: 5px;
+}
+.drawNamesButton{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 80px;
+  justify-content: center;
+  border: 0.5px solid #363636;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+a:link { 
+  text-decoration: none; 
+}
+a:visited { 
+  text-decoration: none; 
+}
+a:hover { 
+  text-decoration: none; 
+}
+a:active { 
+  text-decoration: none; 
 }

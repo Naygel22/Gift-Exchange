@@ -5,11 +5,11 @@
   function handleKeyPress(event) {
     if(event.keyCode === 13){
       event.preventDefault();
-      const newAnswer = createNames(inputBar.value); 
-	  answers.appendChild(newAnswer);
+      const inputText = inputBar.value; //zachowuje tekst przed wyczyszczeniem
+      const newAnswer = createNames(inputText); 
+	    answers.appendChild(newAnswer);
      
-
-    array.push(newAnswer);
+    array.push(inputText);
     inputBar.value = '';
     console.log(array);
     } 
@@ -31,6 +31,8 @@
   deleteButton.appendChild(document.createTextNode("X"));
   deleteButton.addEventListener('click', () => {
     newName.remove(); 
+    let index = array.indexOf(text);  //ma byc tekst z inputa
+    array.splice(index, 1);
     
   });
 
