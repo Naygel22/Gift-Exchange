@@ -40,6 +40,24 @@
   newName.appendChild(deleteButton);
 
   return newName;
-
  }
+
+ const inputUserName = document.querySelector('.inputUserName');
+ const nameDrawn = document.querySelector('.nameDrawn');
+
+ const drawnName = document.createElement('p');
+ drawnName.className = 'drawnNameText';
+ nameDrawn.appendChild(drawnName);
+
+ let randomIndex = Math.floor(Math.random() * (array.length));
+ 
+ for(let i = 0; i < array.length; i++){
+  if(i === randomIndex){
+    drawnName.textContent = array[i];
+  }
+ }
+ 
+
+ 
+ 
 
