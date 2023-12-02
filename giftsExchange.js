@@ -11,6 +11,7 @@
      
     array.push(inputText);
     inputBar.value = '';
+    localStorage.setItem("array", JSON.stringify(array));
     console.log(array);
     } 
   }
@@ -42,20 +43,31 @@
   return newName;
  }
 
+
+ //3rd page
  const inputUserName = document.querySelector('.inputUserName');
  const nameDrawn = document.querySelector('.nameDrawn');
+ const submitButton = document.querySelector('.submitButton');
 
  const drawnName = document.createElement('p');
  drawnName.className = 'drawnNameText';
  nameDrawn.appendChild(drawnName);
 
- let randomIndex = Math.floor(Math.random() * (array.length));
+// Kod dla trzeciej strony
+console.log('Przed odczytem z localStorage');
+const copiedArray = JSON.parse(localStorage.getItem('array'));
+console.log('Odczytano z localStorage:', copiedArray);
+
+let randomIndex = Math.floor(Math.random() * copiedArray.length);
+console.log('Losowy indeks:', randomIndex);
+
+submitButton.addEventListener('click', () => {
+  console.log('Przycisk został kliknięty');
+  drawnName.textContent = copiedArray[randomIndex];
+});
+
+
  
- for(let i = 0; i < array.length; i++){
-  if(i === randomIndex){
-    drawnName.textContent = array[i];
-  }
- }
  
 
  
