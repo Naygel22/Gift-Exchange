@@ -1,5 +1,9 @@
   const answers = document.querySelector('.answers');
   const inputBar = document.querySelector('.inputBar');
+
+  const startScreen = document.querySelector('#startScreen');
+  const gameScreen = document.querySelector('#gameScreen');
+  const drawScreen = document.querySelector('#drawScreen');
  
   const array = [];
   function handleKeyPress(event) {
@@ -11,7 +15,6 @@
      
     array.push(inputText);
     inputBar.value = '';
-    localStorage.setItem("array", JSON.stringify(array));
     console.log(array);
     } 
   }
@@ -47,29 +50,57 @@
  //3rd page
  const inputUserName = document.querySelector('.inputUserName');
  const nameDrawn = document.querySelector('.nameDrawn');
- const submitButton = document.querySelector('.submitButton');
 
  const drawnName = document.createElement('p');
  drawnName.className = 'drawnNameText';
  nameDrawn.appendChild(drawnName);
 
-// Kod dla trzeciej strony
-console.log('Przed odczytem z localStorage');
-const copiedArray = JSON.parse(localStorage.getItem('array'));
-console.log('Odczytano z localStorage:', copiedArray);
 
-let randomIndex = Math.floor(Math.random() * copiedArray.length);
-console.log('Losowy indeks:', randomIndex);
+ 
+function renderCurrentScreen(currentScreen) {
+  if (currentScreen == 'START'){
+    startScreen.classList.remove('hidden');
+    gameScreen.classList.add('hidden');
+    drawScreen.classList.add('hidden');
+  }
 
+  if (currentScreen == 'GAME'){
+    startScreen.classList.add('hidden');
+    gameScreen.classList.remove('hidden');
+    drawScreen.classList.add('hidden');
+  }
+
+  if (currentScreen == 'DRAW'){
+    startScreen.classList.add('hidden');
+    gameScreen.classList.add('hidden');
+    drawScreen.classList.remove('hidden');
+  }
+}
+
+const startButton = document.querySelector('.startButton');
+startButton.addEventListener('click', () => {
+  currentScreen = 'GAME';
+  renderCurrentScreen('GAME');
+})
+
+const drawNamesButton = document.querySelector('.drawNamesButton');
+drawNamesButton.addEventListener('click', () => {
+  currentScreen = 'DRAW';
+  renderCurrentScreen('DRAW');
+})
+
+const submitButton = document.querySelector('.submitButton');
 submitButton.addEventListener('click', () => {
-  console.log('Przycisk został kliknięty');
-  drawnName.textContent = copiedArray[randomIndex];
-});
-
-
- 
- 
-
+  currentScreen = 'DRAW';
+  renderCurrentScreen('DRAW');
+  let randomIndex = Math.floor(Math.random() * array.length);
+  console.log('Losowy indeks:', randomIndex);
+  let randomNameFromArray = array[randomIndex];
+  drawnName.textContent = randomNameFromArray;
+    //usun array[randomIndex]
+    array.splice(randomIndex, 1);
+    console.log(array);
+})
  
  
 

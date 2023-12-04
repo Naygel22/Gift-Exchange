@@ -73,7 +73,7 @@ body{
 }
 
 
-.app, .gameScreen, .drawScreen{
+#startScreen, #gameScreen, #drawScreen{
   width: 90%;
   max-width: 800px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -168,3 +168,6 @@ a:active {
   align-items: center;
   justify-content: center;
 }
+.hidden {
+  display: none;
+} 
