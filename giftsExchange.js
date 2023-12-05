@@ -93,13 +93,34 @@ const submitButton = document.querySelector('.submitButton');
 submitButton.addEventListener('click', () => {
   currentScreen = 'DRAW';
   renderCurrentScreen('DRAW');
+
   let randomIndex = Math.floor(Math.random() * array.length);
   console.log('Losowy indeks:', randomIndex);
   let randomNameFromArray = array[randomIndex];
+
+  if (inputUserName.value === randomNameFromArray) {
+    // losowanie jeszcze raz
+    randomIndex = Math.floor(Math.random() * array.length);
+    randomNameFromArray = array[randomIndex];
+  }
   drawnName.textContent = randomNameFromArray;
-    //usun array[randomIndex]
+    
     array.splice(randomIndex, 1);
     console.log(array);
+
+    if(array.length === 0) {
+      const endText = document.createElement('p');
+      endText.className = 'endText';
+      nameDrawn.appendChild(endText);
+      endText.textContent = 'Congratulations, everyone will get a present!';
+    }
+    drawnName.style.display = 'block';
+})
+
+const hideButton = document.querySelector('.hideButton');
+hideButton.addEventListener('click', () => {
+  inputUserName.value = '';
+  drawnName.style.display = 'none';
 })
  
  
